@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+  <script>
+//input Data section
+var restaurantOrder = [];
+var order1 = {
+  //뒤에 숫자가 적히지 않으면(0이 아니면) NaN으로 뜬다.
+  "table":13,
+  "pork":1,
+  "cheese":2,
+  "curry":4,
+  "nabe":5,
+  "mamill":2,
+  "raw":5,
+  "mong":3,
+  "mull":2,
+  "uk":1,
+  "kim":4
+}
+let order2 = {
+  "table":21,
+  "pork":2,
+  "cheese":4,
+  "curry":5,
+  "nabe":1,
+  "mamill":5,
+  "raw":3,
+  "mong":2,
+  "mull":1,
+  "uk":5,
+  "kim":7
+}
+restaurantOrder.push(order1);
+restaurantOrder.push(order2);
+
+for(var i = 0 ; i < 2 ; i ++){
+  console.log(" here " + JSON.stringify(restaurantOrder[i]));
+}
+
+
+
+var a1 = order1.pork + order2.pork
+var b1 = order1.cheese + order2.cheese
+var c1 = order1.curry + order2.curry
+var d1 = order1.nabe + order2.nabe
+var e1 = order1.mamill + order2.mamill
+var f1 = order1.raw + order2.raw
+var g1 = order1.mong + order2.mong
+var h1 = order1.mull + order2.mull
+var i1 = order1.uk + order2.uk
+var j1 = order1.kim + order2.kim
+//왜 a2를 0을 해야만 디파인드되지? 그냥 정의 내릴순 없나/?
+var [i,s,a2,a3,b2,b3,w,e] = [0,0,0,0,0,0,0,0]
+
+//var s = 0
+
+
+
+
+
+// switch function
+//치즈 누르고 돈까스 누르면 돈까스가 2개가 나온다 13번 테이블에.
+function orderComplete (orderValue){
+  a1 = a1 - orderValue;
+  console.log('originalValue = ' + a1);
+  console.log('orderValue = ' + orderValue);
+  document.getElementById("bigPork").innerHTML=a1
+
+ if(a2<2){
+  i = i + orderValue;
+  a2 = "돈까스:" + i;
+  document.getElementById("bigPork2").innerHTML=a2
+  i++;
+}
+else if(a3<10){
+ s = s + orderValue;
+ a3 = "돈까스:" + s;
+ document.getElementById("bigPork3").innerHTML=a3
+ i++;
+}
+  return;
+
+}
+function orderComplete2(or1){
+
+  b1=b1-or1
+ document.getElementById("bigCheese").innerHTML=b1
+
+ if(b2<3){
+  w = w + or1;
+  b2 = "치즈돈까스:" + w;
+  document.getElementById("bigCheese2").innerHTML=b2
+  i++;
+ }
+ else if(b3<10){
+ e = e + or1;
+ b3 = "치돈까스:" + e;
+ document.getElementById("bigCheese3").innerHTML=b3
+ i++;
+}
+
+
+  return;
+
+
+}
+function orderComplete3(or2){
+  c1=c1-or2
+  document.getElementById("bigCurry").innerHTML=c1
+  return;
+
+}
+function orderComplete4(or3){
+
+  d1=d1-or3
+  document.getElementById("bigNabe").innerHTML=d1
+  return;
+
+}
+function orderComplete5(or4){
+
+  e1=e1-or4
+  document.getElementById("bigMamill").innerHTML=e1
+  return;
+
+}
+function orderComplete6(or5){
+
+  f1=f1-or5
+  document.getElementById("bigRaw").innerHTML=f1
+  return;
+
+}
+function orderComplete7(or6){
+
+  g1=g1-or6
+  document.getElementById("bigMong").innerHTML=g1
+  return;
+
+}
+function orderComplete8(or7){
+
+  h1=h1-or7
+  document.getElementById("bigMull").innerHTML=h1
+  return;
+
+}
+function orderComplete9(or8){
+
+  i1=i1-or8
+  document.getElementById("bigUk").innerHTML=i1
+  return;
+
+}
+function orderComplete10(or9){
+
+  j1=j1-or9
+  document.getElementById("bigKim").innerHTML=j1
+  return;
+
+}
+
+
+
+
+
+//calculate and make new variable section
+
+
+
+
+
+/*function orderData(){
+  var  "order1.table",
+    "order1.pork":  ,
+    "order1.cheese": ,
+    "order1.curry": ,
+    "order1.nabe": ,
+    "order1.mamill": ,
+    "order1.raw": ,
+    "order1.mong": ,
+    "order1.mull": ,
+    "order1.uk": ,
+    "order1.kim":
+    //위에는 미완성이다. 컨셉만 잡아둔것.
+  }*/
+
+
+//문제: 실시간으로 만들어지는 데이터를 어떻게 덧셈에 추가시키느냐?
+
+
+//    document.getElementById("bigPork").value= a1-value;
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+
+  <style>
+/*Big screen*/
+  .present{
+    float: left;
+    width: 49%;
+    height: 155px;
+    border-style: solid;
+    color: black;
+
+    background-color: pink;
+}
+
+/*switch*/
+.button {
+    padding:160px 0px 160px;
+    float: left;
+    width: 245px;
+    height: px;
+    font-size: 40px;
+    margin: 30px 17.5px;
+    border-radius: 50px;
+    text-align: center;
+    /*왜 하이트에서 퍼센테이지를 쓰면 안나오는거지?*/
+    background-color: pink;
+}
+
+
+
+/*Small screen*/
+  .square {
+    /* 여기서 float가 뭔지 모르겠고, 와이드는 왜 퍼센테이지만 되는지 모르겠다.
+    플로트는 둥둥 떠다닌다는 것이다. 즉 컨탠츠가 있는 곳에서 원하는 곳에 둥둥 떠다닐 수 있다.*/
+    float: left;
+    width: 17.5%;
+    margin: 1.15%;
+    height: 105px;
+    background-color: pink;
+
+  }
+
+
+  .Botton:hover{
+    color: white;
+    background-color: black;
+  }
+  </style>
+</head>
+
+<body>
+
+  <!--Big screen-->
+<div class="present" style="font-size:45px">왕<br>
+      <p style="text-align:center" style="font-size:30px" id="bigPork"></p></div>
+<!--왜 텍스트 얼린은 폰트사이즈 뒤에서는 효력이 없지?-->
+<div class="present" style="font-size:45px">치<br>
+      <p style="text-align:center" style="font-size:20px" id="bigCheese"></p></div>
+
+<div class="present" style="font-size:45px">카<br>
+      <p style="text-align:center" style="font-size:20px" id="bigCurry"></p></div>
+
+<div class="present" style="font-size:45px">나<br>
+      <p style="text-align:center" style="font-size:20px" id="bigNabe"></p></div>
+
+<div class="present" style="font-size:45px">메<br>
+      <p style="text-align:center" style="font-size:20px" id="bigMamill"></p></div>
+
+<div class="present" style="font-size:45px">회<br>
+      <p style="text-align:center" style="font-size:20px" id="bigRaw"></p></div>
+
+<div class="present" style="font-size:45px">멍<br>
+      <p style="text-align:center" style="font-size:20px" id="bigMong"></p></div>
+
+<div class="present" style="font-size:45px">물<br>
+      <p style="text-align:center" style="font-size:20px" id="bigMull"></p></div>
+
+<div class="present" style="font-size:45px">육<br>
+      <p style="text-align:center" style="font-size:20px" id="bigUk"></p></div>
+
+<div class="present" style="font-size:45px">김<br>
+      <p style="text-align:center" style="font-size:20px" id="bigKim"></p></div>
+
+<script>
+
+//왜 밑에꺼가 refresh가 안되는지 알아야한다. 하나의 함수로 묶기에는 무리가 있
+document.getElementById("bigPork").innerHTML=a1
+  //order1.pork+order2.pork
+//생기는 테이블 마다 맞게 대입되게 만들어야하고, 테이블에 주문이 없는 것은 빠지게 하던가 무시되게 해야한다.
+document.getElementById("bigCheese").innerHTML=b1
+  //order1.cheese+order2.cheese
+document.getElementById("bigCurry").innerHTML=c1
+  //order1.curry+order2.curry
+document.getElementById("bigNabe").innerHTML=d1
+  //order1.nabe+order2.nabe
+document.getElementById("bigMamill").innerHTML=e1
+  //order1.mamill+order2.mamill
+document.getElementById("bigRaw").innerHTML=f1
+  //order1.raw+order2.raw
+document.getElementById("bigMong").innerHTML=g1
+  //order1.mong+order2.mong
+document.getElementById("bigMull").innerHTML=h1
+  //order1.mull+order2.mull
+document.getElementById("bigUk").innerHTML=i1
+  //order1.uk+order2.uk
+document.getElementById("bigKim").innerHTML=j1
+  //order1.kim+order2.kim
+
+
+</script>
+<!--switch-->
+<!--<input type="button" class="bottonbox">-->
+  <input onclick="orderComplete(1)"  type="button" class="button" value="왕돈까스"/>
+  <input onclick="orderComplete2(1)" type="button" class="button" value="치즈돈까스"/>
+  <input onclick="orderComplete3(1)" type="button" class="button" value="카레돈까스"/>
+  <input onclick="orderComplete4(1)" type="button" class="button" value="나베우동"/>
+  <input onclick="orderComplete5(1)" type="button" class="button" value="메밀"/>
+  <input onclick="orderComplete6(1)" type="button" class="button" value="회덮밥"/>
+  <input onclick="orderComplete7(1)" type="button" class="button" value="멍게비빔밥"/>
+  <input onclick="orderComplete8(1)" type="button" class="button" value="물회"/>
+  <input onclick="orderComplete9(1)" type="button" class="button" value="육개장"/>
+  <input onclick="orderComplete10(1)" type="button" class="button" value="김치우동"/>
+
+</div>
+
+<!--smal screen-->
+
+  <div class="square">1번 테이블</div>
+  <div class="square">2번 테이블</div>
+  <div class="square">3번 테이블</div>
+  <div class="square">4번 테이블</div>
+  <div class="square">5번 테이블</div>
+  <div class="square">6번 테이블</div>
+  <div class="square">7번 테이블</div>
+  <div class="square">8번 테이블</div>
+  <div class="square">9번 테이블</div>
+  <div class="square">10번 테이블</div>
+  <div class="square">11번 테이블</div>
+	<div class="square">12번 테이블</div>
+  <div class="square">13번 테이블<br>
+    <p id="bigPork2"></p>
+    <p id="bigCheese2"></p>
+  </div>
+  <div class="square">14번 테이블</div>
+  <div class="square">15번 테이블</div>
+  <div class="square">16번 테이블</div>
+  <div class="square">17번 테이블</div>
+  <div class="square">18번 테이블</div>
+  <div class="square">19번 테이블</div>
+  <div class="square">20번 테이블</div>
+  <div class="square">21번 테이블
+    <p align=""  id="bigPork3"></p>
+  </div>
+	<div class="square">22번 테이블</div>
+  <div class="square">23번 테이블</div>
+  <div class="square">24번 테이블</div>
+  <div class="square">25번 테이블</div>
+  <div class="square">26번 테이블</div>
+  <div class="square">27번 테이블</div>
+  <div class="square">28번 테이블</div>
+  <div class="square">29번 테이블</div>
+  <div class="square">30번 테이블</div>
+</div>
+
+<script>
+ document.getElementById("bigCheese2").innerHTML=b2
+ document.getElementById("bigPork3").innerHTML=a3
+ document.getElementById("bigPork2").innerHTML=a2
+</script>
+
+
+</body>
+
+
+</html>
